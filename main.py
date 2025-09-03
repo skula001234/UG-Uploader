@@ -808,20 +808,20 @@ async def txt_handler(bot: Client, m: Message):
                 cc = (
     f"<b>🏷️ Iɴᴅᴇx ID  :</b> {str(count).zfill(3)}\n\n"
     f"<b>🎞️  Tɪᴛʟᴇ :</b> {name1} \n\n"
-    f"**📚  𝗕ᴀᴛᴄʜ :** {b_name}</pre>\n"
+    f"<blockquote>📚  𝗕ᴀᴛᴄʜ : {b_name}</blockquote expandable>"
     f"<b>🎓  Uᴘʟᴏᴀᴅ Bʏ : {CR}</b>"
 )
                 cc1 = (
     f"<b>🏷️ Iɴᴅᴇx ID :</b> {str(count).zfill(3)}\n\n"
     f"<b>📑  Tɪᴛʟᴇ :</b> {name1} \n\n"
-    f"**📚  𝗕ᴀᴛᴄʜ :** `{b_name}` \n"
+    f"<blockquote>📚  𝗕ᴀᴛᴄʜ : {b_name}</blockquote expandable>"
     f"<b>🎓  Uᴘʟᴏᴀᴅ Bʏ : {CR}</b>"
 )
                 cczip = f'[📁]Zip Id : {str(count).zfill(3)}\n**Zip Title :** `{name1} .zip`\n<blockquote><b>Batch Name :</b> {b_name}</blockquote>\n\n**Extracted by➤**{CR}\n' 
                 ccimg = (
     f"<b>🏷️ Iɴᴅᴇx ID <b>: {str(count).zfill(3)} \n\n"
     f"<b>🖼️  Tɪᴛʟᴇ</b> : {name1} \n\n"
-    f"**📚  𝗕ᴀᴛᴄʜ :** `{b_name}` \n"
+    f"**📚  𝗕ᴀᴛᴄʜ :** `{b_name}` \n\n"
     f"<b>🎓  Uᴘʟᴏᴀᴅ Bʏ : {CR}</b>"
 )
                 ccm = f'[🎵]Audio Id : {str(count).zfill(3)}\n**Audio Title :** `{name1} .mp3`\n<blockquote><b>Batch Name :</b> {b_name}</blockquote>\n\n**Extracted by➤**{CR}\n'
@@ -1325,7 +1325,7 @@ def notify_owner():
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
     data = {
         "chat_id": OWNER_ID,
-        "text": "Bᴏᴛ Iꜱ Lɪᴠᴇ Nᴏᴡ 🤖\n1. 📑 Sᴇɴᴅ /drm & TXT ғɪʟᴇ\n2. 🎞️ Cʜᴏᴏꜱᴇ ǫᴜᴀʟɪᴛʏn3. 😎 Aᴜʀ ᴀᴀʀᴀᴍ ꜱᴇ ʙᴋᴄ ᴋʀ"
+        "text": "Bᴏᴛ Iꜱ Lɪᴠᴇ Nᴏᴡ 🤖\n1. 📑 Sᴇɴᴅ /drm & TXT ғɪʟᴇ\n2. 🎞️ Cʜᴏᴏꜱᴇ ǫᴜᴀʟɪᴛʏn\n3. 😎 Aᴜʀ ᴀᴀʀᴀᴍ ꜱᴇ ʙᴋᴄ ᴋʀ"
     }
     requests.post(url, data=data)
 

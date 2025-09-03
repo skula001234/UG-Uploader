@@ -61,15 +61,15 @@ def home():
 
 <body>
     <div class="container">
-        <a href="https://github.com/Thanos" class="text-decoration-none text-light">
+        <a href="https://github.com/DevThanos" class="text-decoration-none text-light">
             <pre class="ascii-art">
             
-████████╗██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ███████╗████████╗
-╚══██╔══╝██║  ██║██╔══██╗████╗  ██║██╔═══██╗██╔════╝╚══██╔══╝
-   ██║   ███████║███████║██╔██╗ ██║██║   ██║███████╗   ██║   
-   ██║   ██╔══██║██╔══██║██║╚██╗██║██║   ██║╚════██║   ██║   
-   ██║   ██║  ██║██║  ██║██║ ╚████║╚██████╔╝███████║   ██║   
-   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝   ╚═╝
+████████╗██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ███████╗
+╚══██╔══╝██║  ██║██╔══██╗████╗  ██║██╔═══██╗██╔════╝
+   ██║   ███████║███████║██╔██╗ ██║██║   ██║███████╗
+   ██║   ██╔══██║██╔══██║██║╚██╗██║██║   ██║╚════██║
+   ██║   ██║  ██║██║  ██║██║ ╚████║╚██████╔╝███████║
+   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝
             </pre>
         </a>
 
@@ -83,7 +83,7 @@ def home():
             Powered By Thanos 
             <img src="https://files.catbox.moe/ui41xs.jpg" width="40" height="40">
             <div class="footer__copyright">
-                <p>© 2025 Video Downloader. All rights reserved.</p>
+                <p>© 2025 TXT Links Downloader.</p>
             </div>
         </center>
     </footer>

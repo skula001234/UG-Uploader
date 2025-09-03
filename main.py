@@ -806,23 +806,23 @@ async def txt_handler(bot: Client, m: Message):
 
             try:
                 cc = (
-    f"<b>🏷️ Fɪʟᴇ ID <b>: {str(count).zfill(3)}\n\n"
-    f"<b>🎞️ Tɪᴛʟᴇ</b> : {name1} \n\n"
-    f"<pre>📚 𝗕ᴀᴛᴄʜ : {b_name}</pre>\n"
-    f"<b>🎓 Exᴛʀᴀᴄᴛ Bʏ : {CR}</b>"
+    f"<b>🏷️ Iɴᴅᴇx ID  :</b> {str(count).zfill(3)}\n\n"
+    f"<b>🎞️  Tɪᴛʟᴇ :</b> {name1} \n\n"
+    f"**📚  𝗕ᴀᴛᴄʜ :** {b_name}</pre>\n"
+    f"<b>🎓  Uᴘʟᴏᴀᴅ Bʏ : {CR}</b>"
 )
                 cc1 = (
-    f"<b>🏷️ Fɪʟᴇ ID <b>: {str(count).zfill(3)}\n\n"
-    f"<b>📑 Tɪᴛʟᴇ</b> : {name1} \n\n"
-    f"<pre>📚 𝗕ᴀᴛᴄʜ : `{b_name}` </pre> \n"
-    f"<b>🎓 Exᴛʀᴀᴄᴛ Bʏ : {CR}</b>"
+    f"<b>🏷️ Iɴᴅᴇx ID :</b> {str(count).zfill(3)}\n\n"
+    f"<b>📑  Tɪᴛʟᴇ :</b> {name1} \n\n"
+    f"**📚  𝗕ᴀᴛᴄʜ :** `{b_name}` \n"
+    f"<b>🎓  Uᴘʟᴏᴀᴅ Bʏ : {CR}</b>"
 )
                 cczip = f'[📁]Zip Id : {str(count).zfill(3)}\n**Zip Title :** `{name1} .zip`\n<blockquote><b>Batch Name :</b> {b_name}</blockquote>\n\n**Extracted by➤**{CR}\n' 
                 ccimg = (
-    f"<b>🏷️ Fɪʟᴇ ID <b>: {str(count).zfill(3)} \n\n"
-    f"<b>🖼️ Tɪᴛʟᴇ</b> : {name1} \n\n"
-    f"<pre>📚 𝗕ᴀᴛᴄʜ : `{b_name}` </pre> \n"
-    f"<b>🎓 Exᴛʀᴀᴄᴛ Bʏ : {CR}</b>"
+    f"<b>🏷️ Iɴᴅᴇx ID <b>: {str(count).zfill(3)} \n\n"
+    f"<b>🖼️  Tɪᴛʟᴇ</b> : {name1} \n\n"
+    f"**📚  𝗕ᴀᴛᴄʜ :** `{b_name}` \n"
+    f"<b>🎓  Uᴘʟᴏᴀᴅ Bʏ : {CR}</b>"
 )
                 ccm = f'[🎵]Audio Id : {str(count).zfill(3)}\n**Audio Title :** `{name1} .mp3`\n<blockquote><b>Batch Name :</b> {b_name}</blockquote>\n\n**Extracted by➤**{CR}\n'
                 cchtml = f'[🌐]Html Id : {str(count).zfill(3)}\n**Html Title :** `{name1} .html`\n<blockquote><b>Batch Name :</b> {b_name}</blockquote>\n\n**Extracted by➤**{CR}\n'
@@ -951,7 +951,7 @@ async def txt_handler(bot: Client, m: Message):
                     
 
                 elif 'drmcdni' in url or 'drm/wv' in url:
-                    Show = f"<i><b>⚡Fast Video Downloading</b></i>\n<blockquote><b>{str(count).zfill(3)}) {name1}</b></blockquote>"
+                    Show = f"<i><b>📥 Fast Video Downloading</b></i>\n<blockquote><b>{str(count).zfill(3)}) {name1}</b></blockquote>"
                     prog = await bot.send_message(channel_id, Show, disable_web_page_preview=True)
                     res_file = await helper.decrypt_and_merge_video(mpd, keys_string, path, name, raw_text2)
                     filename = res_file
@@ -965,7 +965,7 @@ async def txt_handler(bot: Client, m: Message):
 
              
                 else:
-                    Show = f"<i><b>⚡Fast Video Downloading</b></i>\n<blockquote><b>{str(count).zfill(3)}) {name1}</b></blockquote>"
+                    Show = f"<i><b>📥 Fast Video Downloading</b></i>\n<blockquote><b>{str(count).zfill(3)}) {name1}</b></blockquote>"
                     prog = await bot.send_message(channel_id, Show, disable_web_page_preview=True)
                     res_file = await helper.download_video(url, cmd, name)
                     filename = res_file
@@ -1185,7 +1185,7 @@ async def text_handler(bot: Client, m: Message):
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
             try:
-                cc = f'**🎞️ Title `{name} [{res}].mp4`\n\n🖇️LNK : <a href="{link}">Class ckHere</a>\n\n🎓 Uploaded By» {CREDIT}**'
+                cc = f'**🎞️ Title `{name} [{res}].mp4`\n\n🖇️LNK : <a href="{link}">Clck Here</a>\n\n🎓 Uploaded By» {CREDIT}**'
                 cc1 = f'**📑 Title» `{name}`\n\n🖇️ LNK : <a href="{link}">Click Here</a>\n\n🎓 Uploaded By {CREDIT}**'
                   
                 if "drive" in url:
@@ -1292,8 +1292,8 @@ async def text_handler(bot: Client, m: Message):
 
                 elif 'drmcdni' in url or 'drm/wv' in url:
                     Show = f"**⚡Dᴏᴡɴʟᴏᴀᴅɪɴɢ Sᴛᴀʀᴛᴇᴅ...⏳**\n" \
-                           f"🔗𝐋𝐢𝐧𝐤 » {url}\n" \
-                           f"✦𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ✦ {CREDIT}"
+                           f"🖇️ LNK » {url}\n" \
+                           f"🎓 Uploaded By » {CREDIT}"
                     prog = await m.reply_text(Show, disable_web_page_preview=True)
                     res_file = await helper.decrypt_and_merge_video(mpd, keys_string, path, name, raw_text2)
                     filename = res_file

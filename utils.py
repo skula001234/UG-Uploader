@@ -94,7 +94,7 @@ async def progress_bar(current, total, reply, start):
                 progress_bar_list.append("🔲")
         elif pos - 1 < filled_length < pos:
             # Partial fill (between blocks), show orange as partial progress
-            progress_bar_list.append("✴️")
+            progress_bar_list.append("◻️")
         else:
             # Not filled yet, show white block
             progress_bar_list.append("◻️")
@@ -120,6 +120,7 @@ async def progress_bar(current, total, reply, start):
         await reply.edit(msg)
     except FloodWait as e:
         time.sleep(e.x)
+
 
 
 

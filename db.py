@@ -73,12 +73,12 @@ class Database:
     def _print_startup_message(self):
         """Print formatted startup message"""
         print(f"\n{Fore.CYAN}{'='*50}")
-        print(f"{Fore.CYAN}📝 Dev Wizard Uploader Bot - Database Initialization")
+        print(f"{Fore.CYAN}🚀 UGDEV 2.0 Uploader Bot - Database Initialization")
         print(f"{'='*50}{Style.RESET_ALL}\n")
 
     def _initialize_database(self):
         """Initialize database indexes and perform migrations"""
-        print(f"{Fore.YELLOW}⏰ Setting up database...{Style.RESET_ALL}")
+        print(f"{Fore.YELLOW}⌛ Setting up database...{Style.RESET_ALL}")
         
         try:
             # Create indexes with error handling

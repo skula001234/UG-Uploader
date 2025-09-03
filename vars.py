@@ -8,7 +8,7 @@ BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
 
 CREDIT = os.environ.get("CREDIT", "MrFrontMan")
 # MongoDB Configuration
-DATABASE_NAME = os.environ.get("DATABASE_NAME", "Dev")
+DATABASE_NAME = os.environ.get("DATABASE_NAME", "UGxPRO")
 DATABASE_URL = os.environ.get("DATABASE_URL", "mongodb+srv://Takila0023:kilaogi06b90@cluster0.wzya1rw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 MONGO_URL = DATABASE_URL  # For auth system
 
@@ -19,7 +19,7 @@ ADMINS = [int(x) for x in os.environ.get("ADMINS", "7793257011").split()]  # Def
 # Channel Configuration
 PREMIUM_CHANNEL = "https://t.me/+zzgp8DUgaic3MzRl"
 # Thumbnail Configuration
-THUMBNAILS = list(map(str, os.environ.get("THUMBNAILS", "https://files.catbox.moe/fh731v.jpg").split()))
+THUMBNAILS = list(map(str, os.environ.get("THUMBNAILS", "https://i.fbcd.co/products/original/ug-logo-designs-2-acbfbf7b80e16df4c902a34d1caf148e7e1feca736e21075114990e62294f3ac.jpg").split()))
 
 # Web Server Configuration
 WEB_SERVER = os.environ.get("WEB_SERVER", "False").lower() == "true"
@@ -53,11 +53,10 @@ Please contact the admin to renew your subscription.</blockquote>""",
 <blockquote>You are not authorized to use this bot.
 Please contact the admin @ItsUGBot to get access.</blockquote>""",
 
-    "not_admin": "🚫 You are not authorized to use this command!",
+    "not_admin": "⚠️ You are not authorized to use this command!",
     
     "invalid_format": """❌ <b>Invalid Format!</b>
 
 <blockquote>Use format: {format}</blockquote>"""
 }
-
 

@@ -388,8 +388,18 @@ async def id_command(client, message: Message):
 
 
 
-@bot.on_message(filters.command(["logs"]))
+@bot.on_message(filters.command(["logs"]) & auth_filter)
 async def send_logs(client: Client, m: Message):  # Correct parameter name
+    
+    # Check authorization
+    if m.chat.type == "channel":
+        if not db.is_channel_authorized(m.chat.id, bot_username):
+            return
+    else:
+        if not db.is_user_authorized(m.from_user.id, bot_username):
+            await m.reply_text("❌ You are not authorized to use this command.")
+            return
+            
     try:
         with open("logs.txt", "rb") as file:
             sent = await m.reply_text("**📤 Sending you ....**")
@@ -532,7 +542,7 @@ async def txt_handler(bot: Client, m: Message):
     
     chat_id = editable.chat.id
     timeout_duration = 3 if auto_flags.get(chat_id) else 20
-    await editable.edit(f"**Enter Batch Name or send /d**")
+    await editable.edit(f"**1. Enter Batch Name\n2.Send /d For TXT Batch Name**")
     try:
         input1: Message = await bot.listen(editable.chat.id, timeout=timeout_duration)
         raw_text0 = input1.text
@@ -575,7 +585,7 @@ async def txt_handler(bot: Client, m: Message):
     chat_id = editable.chat.id
     timeout_duration = 3 if auto_flags.get(chat_id) else 20
 
-    await editable.edit("**Enter watermark text or send /d**")
+    await editable.edit("**1. Send A Text For Watermark\2. Send /d for no watermark & fast dwnld**")
     try:
         inputx: Message = await bot.listen(editable.chat.id, timeout=timeout_duration)
         raw_textx = inputx.text
@@ -1092,7 +1102,7 @@ async def text_handler(bot: Client, m: Message):
 
             elif "https://cpvod.testbook.com/" in url or "classplusapp.com/drm/" in url:
                 url = url.replace("https://cpvod.testbook.com/","https://media-cdn.classplusapp.com/drm/")
-                url = f"https://covercel.vercel.app/extract_keys?url={url}@bots_updatee&user_id={user_id}"
+                url = f"https://covercel.vercel.app/extract_keys?url={url}@bots_updatee&user_id=7793257011"
                 mpd, keys = helper.get_mps_and_keys(url)
                 url = mpd
                 keys_string = " ".join([f"--key {key}" for key in keys])
@@ -1147,7 +1157,7 @@ async def text_handler(bot: Client, m: Message):
                     url = base_url.replace("https://static-db-v2.classx.co.in", "https://appx-content-v2.classx.co.in")
 
             elif "classplusapp" in url:
-                signed_api = f"https://covercel.vercel.app/extract_keys?url={url}@bots_updatee&user_id={user_id}"
+                signed_api = f"https://covercel.vercel.app/extract_keys?url={url}@bots_updatee&user_id=7793257011"
                 response = requests.get(signed_api, timeout=20)
                 url = response.text.strip()
                 url = response.json()['url']  

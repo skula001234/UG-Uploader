@@ -27,6 +27,7 @@ import m3u8
 import cloudscraper
 import yt_dlp
 import tgcrypto
+from logs import logging
 from bs4 import BeautifulSoup
 from pytube import YouTube
 from Crypto.Cipher import AES
@@ -57,6 +58,7 @@ from pyrogram.errors.exceptions.bad_request_400 import MessageNotModified
 # 🧠 Bot Modules
 import auth
 import ug as helper
+from html_handler import html_handler
 from ug import *
 
 from clean import register_clean_handler
@@ -387,6 +389,11 @@ async def id_command(client, message: Message):
     )
 
 
+
+@bot.on_message(filters.command(["t2h"]))
+async def call_html_handler(bot: Client, message: Message):
+    await html_handler(bot, message)
+    
 
 @bot.on_message(filters.command(["logs"]) & auth_filter)
 async def send_logs(client: Client, m: Message):  # Correct parameter name

@@ -56,8 +56,8 @@ from pyrogram.errors.exceptions.bad_request_400 import MessageNotModified
 
 # 🧠 Bot Modules
 import auth
-import Wizard as helper
-from Wizard import *
+import wizard as helper
+from wizard import *
 
 from clean import register_clean_handler
 from logs import logging

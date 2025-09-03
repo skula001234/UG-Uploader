@@ -74,7 +74,7 @@ client = SecureAPIClient()
 apis = client.get_apis()
 
 # Global variables
-watermark = "@GovtxExam"  # Default value
+watermark = "/d"  # Default value
 count = 0
 userbot = None
 timeout_duration = 300  # 5 minutes
@@ -535,7 +535,7 @@ async def txt_handler(bot: Client, m: Message):
     
     chat_id = editable.chat.id
     timeout_duration = 3 if auto_flags.get(chat_id) else 20
-    await editable.edit("**╭━━⪼  `360`\n┣━━⪼  `480`\n┣━━⪼  `720`\n╰━━⪼  `1080`\n\n🎞️  Eɴᴛᴇʀ  Rᴇꜱᴏʟᴜᴛɪᴏɴ**")
+    await editable.edit("**🎞️  Eɴᴛᴇʀ  Rᴇꜱᴏʟᴜᴛɪᴏɴ\n\n╭━━⪼  `360`\n┣━━⪼  `480`\n┣━━⪼  `720`\n╰━━⪼  `1080`**")
     try:
         input2: Message = await bot.listen(editable.chat.id, timeout=timeout_duration)
         raw_text2 = input2.text
@@ -574,7 +574,7 @@ async def txt_handler(bot: Client, m: Message):
     # Define watermark variable based on input
     global watermark
     if raw_textx == '/d':
-        watermark = "UG"
+        watermark = "/d"
     else:
         watermark = raw_textx
     
@@ -1325,7 +1325,7 @@ def notify_owner():
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
     data = {
         "chat_id": OWNER_ID,
-        "text": "BOT is Live Now 🤖\n1. 📑 Send /drm\n2. 🎞️ Choose Quality\n3.😎 Aur Maze kro"
+        "text": "Bᴏᴛ Iꜱ Lɪᴠᴇ Nᴏᴡ 🤖\n1. 📑 Sᴇɴᴅ /drm & TXT ғɪʟᴇ\n2. 🎞️ Cʜᴏᴏꜱᴇ ǫᴜᴀʟɪᴛʏn3. 😎 Aᴜʀ ᴀᴀʀᴀᴍ ꜱᴇ ʙᴋᴄ ᴋʀ"
     }
     requests.post(url, data=data)
 

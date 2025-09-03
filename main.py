@@ -71,6 +71,8 @@ watermark = "DevWizard02"  # Default value
 count = 0
 userbot = None
 timeout_duration = 300  # 5 minutes
+auto_flags = {}   # ✅ Added: to avoid NameError
+
 
 
 # Initialize bot with random session

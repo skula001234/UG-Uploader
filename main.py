@@ -388,6 +388,18 @@ async def id_command(client, message: Message):
 
 
 
+@bot.on_message(filters.command(["logs"]))
+async def send_logs(client: Client, m: Message):  # Correct parameter name
+    try:
+        with open("logs.txt", "rb") as file:
+            sent = await m.reply_text("**📤 Sending you ....**")
+            await m.reply_document(document=file)
+            await sent.delete()
+    except Exception as e:
+        await m.reply_text(f"**Error sending logs:**\n<blockquote>{e}</blockquote>")
+
+
+
 @bot.on_message(filters.command(["drm"]) & auth_filter)
 async def txt_handler(bot: Client, m: Message):  
     # Get bot username
@@ -808,21 +820,21 @@ async def txt_handler(bot: Client, m: Message):
                 cc = (
     f"<b>🏷️ Iɴᴅᴇx ID  :</b> {str(count).zfill(3)}\n\n"
     f"<b>🎞️  Tɪᴛʟᴇ :</b> {name1} \n\n"
-    f"<blockquote>📚  𝗕ᴀᴛᴄʜ : {b_name}</blockquote expandable>"
-    f"<b>🎓  Uᴘʟᴏᴀᴅ Bʏ : {CR}</b>"
+    f"<blockquote>📚  𝗕ᴀᴛᴄʜ : {b_name}</blockquote>"
+    f"\n\n<b>🎓  Uᴘʟᴏᴀᴅ Bʏ : {CR}</b>"
 )
                 cc1 = (
     f"<b>🏷️ Iɴᴅᴇx ID :</b> {str(count).zfill(3)}\n\n"
     f"<b>📑  Tɪᴛʟᴇ :</b> {name1} \n\n"
-    f"<blockquote>📚  𝗕ᴀᴛᴄʜ : {b_name}</blockquote expandable>"
-    f"<b>🎓  Uᴘʟᴏᴀᴅ Bʏ : {CR}</b>"
+    f"<blockquote>📚  𝗕ᴀᴛᴄʜ : {b_name}</blockquote>"
+    f"\n\n<b>🎓  Uᴘʟᴏᴀᴅ Bʏ : {CR}</b>"
 )
                 cczip = f'[📁]Zip Id : {str(count).zfill(3)}\n**Zip Title :** `{name1} .zip`\n<blockquote><b>Batch Name :</b> {b_name}</blockquote>\n\n**Extracted by➤**{CR}\n' 
                 ccimg = (
     f"<b>🏷️ Iɴᴅᴇx ID <b>: {str(count).zfill(3)} \n\n"
     f"<b>🖼️  Tɪᴛʟᴇ</b> : {name1} \n\n"
-    f"**📚  𝗕ᴀᴛᴄʜ :** `{b_name}` \n\n"
-    f"<b>🎓  Uᴘʟᴏᴀᴅ Bʏ : {CR}</b>"
+    f"<blockquote>📚  𝗕ᴀᴛᴄʜ : {b_name}</blockquote>"
+    f"\n\n<b>🎓  Uᴘʟᴏᴀᴅ Bʏ : {CR}</b>"
 )
                 ccm = f'[🎵]Audio Id : {str(count).zfill(3)}\n**Audio Title :** `{name1} .mp3`\n<blockquote><b>Batch Name :</b> {b_name}</blockquote>\n\n**Extracted by➤**{CR}\n'
                 cchtml = f'[🌐]Html Id : {str(count).zfill(3)}\n**Html Title :** `{name1} .html`\n<blockquote><b>Batch Name :</b> {b_name}</blockquote>\n\n**Extracted by➤**{CR}\n'
@@ -1325,7 +1337,7 @@ def notify_owner():
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
     data = {
         "chat_id": OWNER_ID,
-        "text": "Bᴏᴛ Iꜱ Lɪᴠᴇ Nᴏᴡ 🤖\n1. 📑 Sᴇɴᴅ /drm & TXT ғɪʟᴇ\n2. 🎞️ Cʜᴏᴏꜱᴇ ǫᴜᴀʟɪᴛʏn\n3. 😎 Aᴜʀ ᴀᴀʀᴀᴍ ꜱᴇ ʙᴋᴄ ᴋʀ"
+        "text": "Bᴏᴛ Iꜱ Lɪᴠᴇ Nᴏᴡ 🤖\n𝟏.  📑 Sᴇɴᴅ /drm & TXT ғɪʟᴇ\n𝟐.  🎞️ Cʜᴏᴏꜱᴇ ǫᴜᴀʟɪᴛʏ\n𝟑.  😎 Aᴜʀ ᴀᴀʀᴀᴍ ꜱᴇ ʙᴋᴄ ᴋʀ"
     }
     requests.post(url, data=data)
 

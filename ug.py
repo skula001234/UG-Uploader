@@ -353,13 +353,19 @@ async def fast_download(url, name):
     return None
 
 async def download_video(url, cmd, name):
+    """
+    yt-dlp + aria2c optimized downloader with retries.
+    """
     retry_count = 0
     max_retries = 2
 
     while retry_count < max_retries:
-
-
-        download_cmd = f'{cmd} -R 25 --fragment-retries 25 --external-downloader aria2c --downloader-args "aria2c: -x 16 -j 32"'
+        # yt-dlp with aria2c optimized args
+        download_cmd = (
+            f'{cmd} -R 25 --fragment-retries 25 '
+            f'--downloader aria2c '
+            f'--downloader-args "aria2c:-x 32 -s 32 -k 1M" "{url}"'
+        )
         print(download_cmd)
         logging.info(download_cmd)
 

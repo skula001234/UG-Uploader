@@ -395,7 +395,6 @@ async def download_video(url, cmd, name):
 
 
 async def send_vid(bot: Client, m: Message, cc, filename, thumb, name, prog, channel_id, watermark="UG ", topic_thread_id: int = None):
-
     try:
         temp_thumb = None  # ✅ Ensure this is always defined for later cleanup
 
@@ -409,9 +408,9 @@ async def send_vid(bot: Client, m: Message, cc, filename, thumb, name, prog, cha
                 shell=True
             )
 
-            if os.path.exists(temp_thumb):
-                # Prepare watermark text and determine font size based on thumb width and text length
-                text_to_draw = (watermark or "UG").strip()
+            # ✅ Only apply watermark if watermark != "/d"
+            if os.path.exists(temp_thumb) and (watermark and watermark.strip() != "/d"):
+                text_to_draw = watermark.strip()
                 try:
                     # Probe image width for better scaling
                     probe_out = subprocess.check_output(
@@ -448,21 +447,17 @@ async def send_vid(bot: Client, m: Message, cc, filename, thumb, name, prog, cha
                     f'fontsize={font_size}:x=(w-text_w)/2:y=(({box_h})-text_h)/2" '
                     f'-c:v mjpeg -q:v 2 -y "{temp_thumb}"'
                 )
-
-
                 subprocess.run(text_cmd, shell=True)
             
             thumbnail = temp_thumb if os.path.exists(temp_thumb) else None
 
-
         await prog.delete(True)  # ⏳ Remove previous progress message
 
-        reply1 = await bot.send_message(channel_id, f"📩 **Uploading Video:**\n<blockquote>{name}</blockquote>")
+        reply1 = await bot.send_message(channel_id, f" **Uploading Video:**\n<blockquote>{name}</blockquote>")
         reply = await m.reply_text(f"🖼 **Generating Thumbnail:**\n<blockquote>{name}</blockquote>")
 
         file_size_mb = os.path.getsize(filename) / (1024 * 1024)
         notify_split = None
-
         sent_message = None
 
         if file_size_mb < 2000:

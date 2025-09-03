@@ -394,7 +394,7 @@ async def download_video(url, cmd, name):
 
 
 
-async def send_vid(bot: Client, m: Message, cc, filename, thumb, name, prog, channel_id, watermark="UG ", topic_thread_id: int = None):
+async def send_vid(bot: Client, m: Message, cc, filename, thumb, name, prog, channel_id, watermark="/d", topic_thread_id: int = None):
     try:
         temp_thumb = None  # ✅ Ensure this is always defined for later cleanup
 
@@ -442,9 +442,9 @@ async def send_vid(bot: Client, m: Message, cc, filename, thumb, name, prog, cha
 
                 text_cmd = (
                     f'ffmpeg -i "{temp_thumb}" -vf '
-                    f'"drawbox=y=0:color=black@0.35:width=iw:height={box_h}:t=fill,'
-                    f'drawtext=fontfile=font.ttf:text=\'{safe_text}\':fontcolor=white:'
-                    f'fontsize={font_size}:x=(w-text_w)/2:y=(({box_h})-text_h)/2" '
+                    f'"drawbox=x=(w-text_w-40):y=(h-text_h-40):w=text_w+30:h=text_h+30:color=black@0.5:t=fill,'
+                    f'drawtext=fontfile={font_path}:text=\'{safe_text}\':fontcolor=white:fontsize={font_size}:'
+                    f'box=0:shadowcolor=black@0.7:shadowx=2:shadowy=2:x=(w-text_w-20):y=(h-text_h-20)" '
                     f'-c:v mjpeg -q:v 2 -y "{temp_thumb}"'
                 )
                 subprocess.run(text_cmd, shell=True)

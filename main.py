@@ -567,7 +567,7 @@ async def txt_handler(bot: Client, m: Message):
     # Define watermark variable based on input
     global watermark
     if raw_textx == '/d':
-        watermark = " "
+        watermark = "Dev"
     else:
         watermark = raw_textx
     
@@ -584,7 +584,7 @@ async def txt_handler(bot: Client, m: Message):
     elif "," in raw_text3:
         CR, PRENAME = raw_text3.split(",")
     else:
-        CR = raw_text3.split(",")
+        CR = raw_text3
     chat_id = editable.chat.id
     timeout_duration = 3 if auto_flags.get(chat_id) else 20
     await editable.edit(f"**1. Sebd PW Token For mpd urls \n 2. Send CP Token or /d**")

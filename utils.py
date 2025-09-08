@@ -88,7 +88,7 @@ async def progress_bar(current, total, reply, start):
             # If in last 30% of progress, make green
             if progress_ratio > 0.7:
                 # The left part turns green from 70% progress onwards
-                progress_bar_list.append("✴️")
+                progress_bar_list.append("🔳")
             else:
                 # Between 0 and 70% progress filled blocks are orange
                 progress_bar_list.append("🔲")
@@ -102,7 +102,7 @@ async def progress_bar(current, total, reply, start):
     # Extra tweak: if progress > 90%, all filled blocks green
     if progress_ratio >= 0.9:
         for i in range(int(filled_length)):
-            progress_bar_list[i] = "✳️"
+            progress_bar_list[i] = "◻️"
 
     progress_bar_str = "".join(progress_bar_list)
 
@@ -120,6 +120,7 @@ async def progress_bar(current, total, reply, start):
         await reply.edit(msg)
     except FloodWait as e:
         time.sleep(e.x)
+
 
 
 

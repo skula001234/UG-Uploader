@@ -66,14 +66,10 @@ from logs import logging
 from utils import progress_bar
 from vars import *
 from pyromod import listen
-import apixug
-from apixug import SecureAPIClient
 from db import db
 
 auto_flags = {}
 auto_clicked = False
-client = SecureAPIClient()
-apis = client.get_apis()
 
 # Global variables
 watermark = "/d"  # Default value

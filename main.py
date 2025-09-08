@@ -57,9 +57,9 @@ from pyrogram.errors.exceptions.bad_request_400 import MessageNotModified
 
 # 🧠 Bot Modules
 import auth
-import ug as helper
+import thanos as helper
 from html_handler import html_handler
-from ug import *
+from thanos import *
 
 from clean import register_clean_handler
 from logs import logging

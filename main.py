@@ -1358,6 +1358,25 @@ async def text_handler(bot: Client, m: Message):
         await m.reply_text(str(e))
 
 #...............…........
+def reset_and_set_commands():
+    url = f"https://api.telegram.org/bot{BOT_TOKEN}/setMyCommands"
+    # Reset
+    requests.post(url, json={"commands": []})
+    # Set new
+    commands = [
+        {"command": "start", "description": "🤖 Check Bot"},
+        {"command": "stop", "description": "🚫 Stop the ongoing process"},
+        {"command": "drm", "description": "📑 Upload .txt file"},
+        {"command": "cookies", "description": "📁 Upload YT Cookies"},
+        {"command": "t2t", "description": "📟 Text → .txt Generator"},
+        {"command": "t2h", "description": "📑 → 🌐 HTML converter"},
+        {"command": "id", "description": "🆔 Get Your ID"},
+        {"command": "add", "description": "▶️ Add Auth "},
+        {"command": "remove", "description": "⏸️ Remove Auth "},
+        {"command": "users", "description": "👨‍👨‍👧‍👦 All Users"}
+    ]
+    requests.post(url, json={"commands": commands})
+
 def notify_owner():
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
     data = {
@@ -1366,30 +1385,7 @@ def notify_owner():
     }
     requests.post(url, data=data)
 
-
-def reset_and_set_commands():
-    url = f"https://api.telegram.org/bot{BOT_TOKEN}/setMyCommands"
-    # Reset
-    requests.post(url, json={"commands": []})
-    # Set new
-    commands = [
-        {"command": "start", "description": "✅ Check Alive the Bot"},
-        {"command": "stop", "description": "🚫 Stop the ongoing process"},
-        {"command": "drm", "description": "📑 Upload .txt file"},
-        {"command": "cookies", "description": "📁 Upload YT Cookies"},
-        {"command": "y2t", "description": "🔪 YouTube → .txt Converter"},
-        {"command": "ytm", "description": "🎶 YT .txt → .mp3 downloader"},
-        {"command": "yt2m", "description": "🎵 YT link → .mp3 downloader"},
-        {"command": "t2t", "description": "📟 Text → .txt Generator"},
-        {"command": "id", "description": "🆔 Get Your ID"},
-        {"command": "add", "description": "▶️ Add Authorisation"},
-        {"command": "remove", "description": "⏸️ Remove Authorisation "},
-        {"command": "users", "description": "👨‍👨‍👧‍👦 All Users"}
-    ]
-    requests.post(url, json={"commands": commands})
     
-
-
 
 if __name__ == "__main__":
     reset_and_set_commands()
